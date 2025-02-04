@@ -8,3 +8,5 @@ class Personne {
         console.log(`Bonjour, je m'appelle ${this.nom} et j'ai ${this.age} ans.`);
     }
 }
+
+export {Personne};
