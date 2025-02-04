@@ -40,24 +40,26 @@ chaîne, tableau, objet, fonction, etc.).
 
 // 1. Création d'un objet (simple) JavaScript
 // a) Création d'un objet avec un objet littéral (notation avec {})
-const personne1 = {
-    nom: "Alice",
-    age: 30,
-};
+const personne1 = { nom: "Alice", age: 30,};
+
 console.log("1. Objet personne1 :", personne1);
+
 // b) Création d'un objet avec le constructeur de la classe Object
-const personne2 = new Object({nom: "Bob", age: 25});
+
 // Similairement, on peut créer un objet vide avec le constructeur Object
 // et ajouter des propriétés par la suite
 // const personne2 = new Object();
 // personne2.nom = "Bob";
 // personne2.age = 25;
+const personne2 = new Object();
+personne2.nom = "Bob";
+personne2.age = 25;
 console.log("1. Objet personne2 :", personne2);
 
 // 2. Accès aux propriétés de l'objet
 // Nous accédons aux propriétés en utilisant la notation par point et par crochets.
-console.log("2. Nom :", personne1.nom); // Utilisation de la notation par point
-console.log("2. Âge :", personne1["age"]); // Utilisation de la notation par crochets
+console.log("2. Nom :", personne1.nom);     // Utilisation de la notation par point
+console.log("2. Âge :", personne1["age"]);  // Utilisation de la notation par crochets
 
 // 3. Modification des propriétés de l'objet
 personne1.age = 31;
@@ -76,7 +78,7 @@ const personne3 = {
     nom: "Albert",
     age: 57,
     saluer: function() {
-        console.log(`6. Bonjour, je m'appelle ${this.nom} et j'ai ${this.age} ans.`);
+        console.log(`6. Bonjour, je m'appelle ${this.nom} et j'ai ${this.age} ans.`); //une façon de faire une fonction dans une instance.
     }
 };
 personne3.saluer();
@@ -94,12 +96,12 @@ console.log("7. Voiture :", voiture);
 
 // 8. Accès aux propriétés d'un objet imbriqué
 console.log("7. Nom du propriétaire :", voiture.proprietaire.nom);
-console.log("8. Âge du propriétaire :", voiture.proprietaire["age"]); // mélange de notations . et []
+console.log("8. Âge du propriétaire :", voiture["proprietaire"]["age"]); // mélange de notations . et [] le crochet remplace le point mais fais exactement la même chose
 
 // 9. Parcourir les propriétés d'un objet avec une boucle for...in
 console.log("10. Propriétés de l'objet personne1 :");
-for (const cle in personne1) {
-    console.log(cle + " : " + personne1[cle]);
+for (const cle in voiture) {
+    console.log(cle + " : " + voiture[cle]);
 }
 // 10. Utilisation de Object.create() pour créer un nouvel objet avec un prototype
 const animal = {
@@ -128,14 +130,16 @@ personne5.afficherDetails();
 
 // EXERCICE : 
 // a) Mettre les 5 objets (personne1 à personne5) dans un tableau appelé 'personnes'
+const personnes = [personne1,personne2, personne3 ,personne4 , personne5, ];
+console.log(personnes); 
 
-
-// b) Calculer l'âge moyen (avec .reduce())
-
-
+// b) Calculer l'âge moyen (avec .reduce()) reduce calcule la somme ensuite 
+let sommeAgesTableau = personnes.reduce((sommeAges, element) => sommeAges + element.age, 0);
+console.log("age moyen des personne du tableau", sommeAgesTableau/personnes.length,  " ans.");
 
 // Tous les objets qu'on a créés sont des instances de la classe Object
 console.log(personne1 instanceof Object, personne2 instanceof Object, personne3 instanceof Object, personne4 instanceof Object, personne5 instanceof Object); // true
+console.log(personne4 instanceof Personne);
 console.log(typeof personne1, typeof personne2, typeof personne3, typeof personne4, typeof personne5); // object
 
 // Et maintenant... les CLASSES! 

@@ -17,15 +17,19 @@ class Personne {
     }
 
     afficherDetails() {
-        console.log(`Bonjour, je m'appelle ${this.prenom} ${this.nom} et j'ai ${this.age} ans.`);
+        console.log(`Bonjour, je m'appelle ${this.nom} et j'ai ${this.age} ans.`);
     }
 }
 
 // Créer un objet de la classe
+const personne1 = new Personne("shun" , 17);
 
-
+const shun = Object.create(Personne);
+shun.prenom = shun;
+shun.nom = "Désilets";
+shun.age = 17 ;//depuis 27 mois
 // Appeler la méthode afficherDetails()
-
+shun.afficherDetails();
 
 // Modifier et afficher le nom avec la notation .
 
