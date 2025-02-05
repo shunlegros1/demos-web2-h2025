@@ -42,16 +42,16 @@ chaîne, tableau, objet, fonction, etc.).
 // a) Création d'un objet avec un objet littéral (notation avec {})
 const personne1 = {
     nom: "Alice",
-    age: 30,
+    'age': 30,
 };
 console.log("1. Objet personne1 :", personne1);
 // b) Création d'un objet avec le constructeur de la classe Object
-const personne2 = new Object({nom: "Bob", age: 25});
+// const personne2 = new Object({nom: "Bob", age: 25});
 // Similairement, on peut créer un objet vide avec le constructeur Object
 // et ajouter des propriétés par la suite
-// const personne2 = new Object();
-// personne2.nom = "Bob";
-// personne2.age = 25;
+const personne2 = new Object();
+personne2.nom = "Bob";
+personne2['age'] = 25;
 console.log("1. Objet personne2 :", personne2);
 
 // 2. Accès aux propriétés de l'objet
@@ -97,15 +97,15 @@ console.log("7. Nom du propriétaire :", voiture.proprietaire.nom);
 console.log("8. Âge du propriétaire :", voiture.proprietaire["age"]); // mélange de notations . et []
 
 // 9. Parcourir les propriétés d'un objet avec une boucle for...in
-console.log("10. Propriétés de l'objet personne1 :");
+console.log("9. Propriétés de l'objet personne1 :");
 for (const cle in personne1) {
     console.log(cle + " : " + personne1[cle]);
 }
-// 10. Utilisation de Object.create() pour créer un nouvel objet avec un prototype
+// 10. Utilisation de .0 pour créer un nouvel objet avec un prototype
 const animal = {
     type: "Inconnu",
     afficherType: function() {
-        console.log("9. Type d'animal :", this.type);
+        console.log("10. Type d'animal :", this.type);
     }
 };
 
@@ -114,9 +114,9 @@ chien.type = "Chien";
 chien.afficherType();
 
 // 11. Fonction constructeur pour créer des objets
-function Personne(nom='Inconnu', age=0) {
-    this.nom = nom;
-    this.age = age;
+function Personne(_nom='Inconnu', _age=0) {
+    this.nom = _nom;
+    this.age = _age;
     this.afficherDetails = function() {
         console.log(`11. Nom : ${this.nom}, Âge : ${this.age}`);
     };
@@ -127,11 +127,14 @@ personne4.afficherDetails();
 personne5.afficherDetails();
 
 // EXERCICE : 
+console.log("\n\nEXERCICE +++++++++++++");
 // a) Mettre les 5 objets (personne1 à personne5) dans un tableau appelé 'personnes'
-
-
+const personnes = [personne1, personne2, personne3, personne4, personne5, ];
+console.log(personnes);
 // b) Calculer l'âge moyen (avec .reduce())
-
+let sommeAgesTableau = personnes.reduce((sommeAges, element) => sommeAges + element.age, 0);
+console.log(sommeAgesTableau)
+console.log("La moyenne des âges du tableau est", sommeAgesTableau/personnes.length, "ans.");
 
 
 // Tous les objets qu'on a créés sont des instances de la classe Object
