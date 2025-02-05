@@ -30,11 +30,11 @@ console.log(monChien.decrire()); // Cet animal s'appelle Rex. C'est un chien de 
 console.log(unAnimal.decrire()); // Cet animal s'appelle Popcorn.
 
 // Appartenance des objets
-console.log(unAnimal instanceof Object);
-console.log(unAnimal instanceof Animal);
-console.log(unAnimal instanceof Chien);
-console.log(monChien instanceof Object);
-console.log(monChien instanceof Animal);
-console.log(monChien instanceof Chien);
+console.log(unAnimal instanceof Object); // true, donc unAnimal EST UN Object
+console.log(unAnimal instanceof Animal); // true, donc unAnimal EST UN Animal
+console.log(unAnimal instanceof Chien); // false, donc unAnimal N'EST PAS UN Chien
+console.log(monChien instanceof Object); // true, donc monChien EST UN Object
+console.log(monChien instanceof Animal); // true, donc monChien EST UN Animal
+console.log(monChien instanceof Chien); // true, donc monChien EST UN Chien
 console.log(typeof unAnimal);
-console.log(typeof monChien);
+console.log(typeof monChien); // peu importe la classe effective de l'objet, il est vu comme étant de type 'object'
