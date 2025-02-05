@@ -9,10 +9,9 @@ Références utiles
 */
 
 // Importer la classe Personne
-// Si on a un export default, on utilise
-//import Personne from './Personne.js'
-// Si on a un export (sans default), on utilise
-import {Personne} from './Personne.js'
+// import Personne from './Personne.js'; // si on a un export default dans le fichier source
+import {Personne} from './Personne.js'; // si on n'a pas de export default dans le fichier source
+
 
 // Création d'objets avec la classe Personne
 const personne1 = new Personne("Maxime", 44);
@@ -32,10 +31,11 @@ for(const personne of personnes) {
     personne.afficherDetails();
 }
 
-// c) Trier les personnes du tableau par ordre alphabétique inverse de nom
-// Pour ne pas affecter le tableau original, faisons une copie (si nécessaire)
-const copiePersonnes = personnes.map( element => element ); // pour dupliquer
-copiePersonnes.sort( (element1, element2) => element1.nom.localeCompare(element2.nom) );
+// c) Trier les personnes du tableau par ordre alphabétique inverse du nom
+// Si on souhaite ne pas modifier le tableau original, on peut en faire une copie
+// rapidement avec .map()
+const copiePersonnes = personnes.map(element => element);
+copiePersonnes.sort( (elm1, elm2) => elm1.nom.localeCompare(elm2.nom) );
 copiePersonnes.reverse();
+console.log(personnes);
 console.log(copiePersonnes);
-

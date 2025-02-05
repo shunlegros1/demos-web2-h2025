@@ -9,12 +9,4 @@ class Personne {
     }
 }
 
-// class Bidon {
-//     constructor(nom='Aucun') {
-//         this.nom = nom;
-//     }
-// }
-
-// const x = 3;
-
 export {Personne};

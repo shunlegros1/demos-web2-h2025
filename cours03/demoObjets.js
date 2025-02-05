@@ -32,7 +32,7 @@ Sections :
 
 DÉFINITION :
 Un objet en JavaScript est une collection de propriétés, où chaque propriété est une paire clé-valeur. 
-On utilise les accolates {} pour représenter un objet et les propriétés sont séparées par des virgules.
+On utilise les accolades {} pour représenter un objet et les propriétés sont séparées par des virgules.
 On sépare la clé et la valeur par le caractère deux points : cle: valeur.
 Les clés sont des chaînes de caractères et les valeurs peuvent être de tout type de données (nombre, 
 chaîne, tableau, objet, fonction, etc.).
@@ -79,6 +79,7 @@ const personne3 = {
         console.log(`6. Bonjour, je m'appelle ${this.nom} et j'ai ${this.age} ans.`);
     }
 };
+console.log(personne3.saluer);
 personne3.saluer();
 
 // 7. Objets imbriqués
@@ -97,9 +98,9 @@ console.log("7. Nom du propriétaire :", voiture.proprietaire.nom);
 console.log("8. Âge du propriétaire :", voiture.proprietaire["age"]); // mélange de notations . et []
 
 // 9. Parcourir les propriétés d'un objet avec une boucle for...in
-console.log("9. Propriétés de l'objet personne1 :");
-for (const cle in personne1) {
-    console.log(cle + " : " + personne1[cle]);
+console.log("10. Propriétés de l'objet personne1 :");
+for (const cle in voiture) {
+    console.log(cle + " : " + voiture[cle]);
 }
 // 10. Utilisation de .0 pour créer un nouvel objet avec un prototype
 const animal = {
@@ -139,6 +140,7 @@ console.log("La moyenne des âges du tableau est", sommeAgesTableau/personnes.le
 
 // Tous les objets qu'on a créés sont des instances de la classe Object
 console.log(personne1 instanceof Object, personne2 instanceof Object, personne3 instanceof Object, personne4 instanceof Object, personne5 instanceof Object); // true
+console.log(personne4 instanceof Personne);
 console.log(typeof personne1, typeof personne2, typeof personne3, typeof personne4, typeof personne5); // object
 
 // Et maintenant... les CLASSES! 
